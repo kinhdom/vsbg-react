@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import './Post.css'
 class Post extends Component {
     render() {
@@ -12,7 +13,16 @@ class Post extends Component {
                         <div className="col s12 m8">
                             <p>{this.props.caption}</p>
                             <ul className="collection with-header">
-                                <li className="collection-header"> <a target="_blank" href={'https://www.facebook.com/' + this.props.post_id}> <h4>{this.props.name} <span class="new badge blue" data-badge-caption="likes">{this.props.likes}</span></h4> </a> </li>
+                                <li className="collection-header">
+                                    <a target="_blank" href={'https://www.facebook.com/' + this.props.post_id}>
+                                        <h4>{this.props.name}
+                                            <span className="new badge blue" data-badge-caption="likes">{this.props.likes}</span>
+                                        </h4>
+                                    </a>
+                                    <Link to={"/detail/"+this.props.uid} >
+                                        <a className="waves-effect waves-light btn">detail</a>
+                                    </Link>
+                                </li>
                                 <li className="collection-item"><div>Alvin  <a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
                                 <li className="collection-item"><div>Alvin<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
                                 <li className="collection-item"><div>Alvin<a href="#!" className="secondary-content"><i className="material-icons">send</i></a></div></li>
